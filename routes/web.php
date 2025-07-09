@@ -14,6 +14,7 @@ use App\Http\Controllers\DescuentoController;
 
 Route::get('/', function () {
     return redirect()->route('home');
+
 });
 Route::get('/tienda', [ProductoController::class, 'tienda'])->name('tienda');
 
@@ -21,10 +22,6 @@ Route::get('/tienda', [ProductoController::class, 'tienda'])->name('tienda');
 
 
 Auth::routes();
-
-
-
-
 Route::middleware('auth')->group(function () {
     Route::resource('productos', ProductoController::class);
     Route::resource('carritos', CarritoController::class);
@@ -44,11 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrito/pagar', [CarritoController::class, 'pagarCarrito'])->name('carrito.pagar');
     Route::get('/premios', [ProductoController::class, 'premios'])->name('premios');
     Route::post('/premios/canjear', [ProductoController::class, 'canjearProducto'])->name('canjear.premio');
-
-
-    // o si prefieres usar PUT
-// Route::put('/carrito/{id}', [CarritoController::class, 'guardarCarrito'])->name('guardar.carrito');
-
 
     Route::get('/perfil', function () {
         return view('user.perfil');

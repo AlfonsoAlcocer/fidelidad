@@ -76,6 +76,7 @@ class UserController extends Controller
             'direccion',
             'estado',
             'ciudad',
+            'puntos',
             'rol',
             'activo'
         ]));

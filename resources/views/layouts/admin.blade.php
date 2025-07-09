@@ -1,16 +1,8 @@
-@if (auth()->check())
-    @if (auth()->user()->activo === 0)
-        @php
-            auth()->logout();
-            header("Location: " . route('login'));
-            exit;
-        @endphp
-    @elseif (auth()->user()->rol !== 'admin')
-        @php
-            header("Location: " . route('tienda'));
-            exit;
-        @endphp
-    @endif
+@if (auth()->user()->rol !== 'admin')
+    @php
+        header("Location: " . route('tienda'));
+        exit;
+    @endphp
 @endif
 
 
