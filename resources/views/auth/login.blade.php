@@ -53,7 +53,6 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <!-- Cambié type a button para evitar envío automático -->
                                 <button id="enviarBTN" type="button" class="btn btn-primary">
                                     Iniciar sesión
                                 </button>
@@ -94,7 +93,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const words = ['manzana', 'perro', 'cielo', 'montaña', 'río']; 
     const loginForm = document.getElementById('loginForm');
-    const submitBtn = document.getElementById('enviarBTN'); // corregido aquí
+    const submitBtn = document.getElementById('enviarBTN'); 
     const speechModal = new bootstrap.Modal(document.getElementById('speechModal'));
     const wordToSayElem = document.getElementById('wordToSay');
     const startRecognitionBtn = document.getElementById('startRecognition');
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentWord = '';
 
-    // Al hacer click en el botón Iniciar sesión, mostramos el modal y elegimos palabra
+
     submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
         currentWord = words[Math.floor(Math.random() * words.length)];
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         speechModal.show();
     });
 
-    // Configurar SpeechRecognition
+ 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
         startRecognitionBtn.disabled = true;
@@ -136,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             speechResultElem.textContent += ' ✅ Palabra correcta. Enviando formulario...';
             setTimeout(() => {
                 speechModal.hide();
-                loginForm.submit(); // enviar formulario
+                loginForm.submit();
             }, 1000);
         } else {
             speechResultElem.textContent += ' ❌ Palabra incorrecta. Intenta de nuevo.';
