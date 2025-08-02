@@ -13,7 +13,7 @@ use App\Http\Controllers\DescuentoController;
 
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return redirect()->route('tienda');
 
 });
 Route::get('/tienda', [ProductoController::class, 'tienda'])->name('tienda');
